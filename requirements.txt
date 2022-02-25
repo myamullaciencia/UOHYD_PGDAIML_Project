@@ -3,4 +3,4 @@ pandas
 streamlit
 scikit-learn
 requests
-pickle
+pickle-mixin
