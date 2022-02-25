@@ -6,7 +6,6 @@ import time
 import streamlit as st
 import altair as alt
 import pickle
-import matplotlib.pyplot as plt
 import os, requests
 
 my_classifier_url = r'https://github.com/myamullaciencia/UOHYD_PGDAIML_Project/blob/main/sms_email_classifier.pkl?raw=true'
