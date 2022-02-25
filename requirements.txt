@@ -1,6 +1,2 @@
-numpy
-pandas
-streamlit
 scikit-learn
-requests
 pickle-mixin
