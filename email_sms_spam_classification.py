@@ -8,21 +8,21 @@ import altair as alt
 import pickle
 import os, requests
 
-my_classifier_url = r'https://github.com/myamullaciencia/UOHYD_PGDAIML_Project/blob/main/sms_email_classifier.pkl?raw=true'
-my_text_url = r'https://github.com/myamullaciencia/UOHYD_PGDAIML_Project/blob/main/sms_email_tfidf_vect.pkl?raw=true'
+my_classifier_url = r'https://github.com/myamullaciencia/UOHYD_PGDAIML_Project/blob/main/sms_email_classifier_xgb.pkl?raw=true'
+my_text_url = r'https://github.com/myamullaciencia/UOHYD_PGDAIML_Project/blob/main/sms_email_tfidf_vect_xgb.pkl?raw=true'
 
 my_cwd = os.getcwd()
 
-xgb_model_file = os.path.join(my_cwd,'sms_email_classifier.pkl')
-text_vect_file = os.path.join(my_cwd,'sms_email_tfidf_vect.pkl')
+xgb_model_file = os.path.join(my_cwd,'sms_email_classifier_xgb.pkl')
+text_vect_file = os.path.join(my_cwd,'sms_email_tfidf_vect_xgb.pkl')
 
 my_model_resp = requests.get(my_classifier_url)
 my_text_resp = requests.get(my_text_url)
 
-with open('sms_email_tfidf_vect.pkl', 'wb') as fopen:
+with open('sms_email_tfidf_vect_xgb.pkl', 'wb') as fopen:
         fopen.write(my_text_resp.content)
 
-with open('sms_email_classifier.pkl', 'wb') as fopen:
+with open('sms_email_classifier_xgb.pkl', 'wb') as fopen:
         fopen.write(my_model_resp.content)
 
 with open(xgb_model_file, 'rb') as file:
