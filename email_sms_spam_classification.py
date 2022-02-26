@@ -61,12 +61,14 @@ st.header("E-Mail and SMS Messaging Classifiation")
 with st.form("Message classification"):
 	txt_msg = st.text_input("Enter a text message to check it is a Spam or Legit?")
 	submitted = st.form_submit_button("Submit")
-	if submitted and len(txt_msg) !=0:
+	if submitted and len(txt_msg)>=13:
 		msg_cls = model_predictor([txt_msg])
 		if msg_cls==1:
 			st.markdown(f'<h2 style="color:#de2d26;font-size:18px;">{"Spam !!!"}</h2>', unsafe_allow_html=True)
 		else:
 			st.markdown(f'<h2 style="color:#31a354;font-size:18px;">{"Clean !!!"}</h2>', unsafe_allow_html=True)
+	elif submitted and len(txt_msg)>=1 and len(txt_msg)<13:
+		st.markdown(f'<h1 style="color:#de2d26;font-size:18px;">{"Short messages cant be classified and its length should be more than 13 !!!"}</h1>', unsafe_allow_html=True)
 	elif submitted and len(txt_msg)==0:
 		st.markdown(f'<h1 style="color:#de2d26;font-size:18px;">{"Please Enter a text message !!!"}</h1>', unsafe_allow_html=True)
 	else:
